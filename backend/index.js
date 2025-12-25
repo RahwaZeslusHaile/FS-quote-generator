@@ -4,13 +4,14 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; 
 
 app.use(cors());
 app.use(express.json());
 
 const filePath = path.resolve('../frontend/quotes.json');
 let quotes = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
 app.get('/api/quotes', (req, res) => {
   res.json(quotes);
 });
@@ -35,5 +36,5 @@ app.post('/api/quotes', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
