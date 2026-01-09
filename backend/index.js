@@ -16,15 +16,15 @@ app.get('/api/quotes', (req, res) => {
 });
 
 app.post('/api/quotes', (req, res) => {
-  const { text, author } = req.body;
+  const { quote, author } = req.body;
 
-  if (!text || !author) {
-    return res.status(400).json({ error: 'Text and author are required' });
+  if (!quote || !author) {
+    return res.status(400).json({ error: 'quote and author are required' });
   }
 
   const newQuote = {
     id: quotes.length + 1,
-    text,
+    quote,
     author
   };
 
