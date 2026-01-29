@@ -4,7 +4,7 @@
   "license": "CC-BY-SA-4.0",
   "description": "Quote Generator Frontend",
   "scripts": {
-    "start": "serve -s .",
+    "start": "serve -s . -l 3000",
     "test": "jest"
   },
   "dependencies": {
